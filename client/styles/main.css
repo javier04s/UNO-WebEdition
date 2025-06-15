@@ -8,7 +8,6 @@ body {
   color: #ccc;
   background-attachment: fixed;
   background-blend-mode: overlay;
-  opacity: 1;
 }
 
 body::before {
@@ -27,19 +26,21 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-content {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
+  justify-content: center;
 }
 
 .logo {
-  height: 48px;
-  width: 48px;
+  height: 60px;
+  width: 60px;
   object-fit: contain;
 }
 
@@ -49,7 +50,7 @@ header h1 {
   font-size: 1.9rem;
   color: #3fa9f5;
   text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-  flex-grow: 1;
+  margin: 0;
 }
 
 .github-btn {
@@ -58,13 +59,20 @@ header h1 {
   justify-content: center;
   padding: 0.2rem;
   border-radius: 8px;
-  transition: background-color 0.3s ease;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.github-btn:hover,
-.github-btn:focus {
-  background-color: rgba(63,169,245,0.15);
+.github-btn svg {
+  width: 36px;
+  height: 36px;
+  fill: #6a0dad;
+  transition: fill 0.3s ease;
+}
+
+.github-btn:hover svg,
+.github-btn:focus svg {
+  fill: white;
   outline: none;
 }
 
@@ -87,7 +95,7 @@ main {
   padding: 3rem 4rem 3rem 4rem;
   background: linear-gradient(160deg, #13151d, #0f1117);
   border-radius: 18px;
-  box-shadow: 0 0 25px 5px rgba(63,169,245,0.25);
+  box-shadow: 0 0 25px 5px rgba(255, 215, 0, 0.5);
   color: #ccc;
   user-select: none;
 }
@@ -124,9 +132,11 @@ main {
   font-size: 1.1rem;
   font-weight: 700;
   text-align: center;
-  border: 2px solid #3fa9f5;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid #3fc659;
   border-radius: 12px;
-  color: #3fa9f5;
+  color: #3fc659;
   background-color: transparent;
   cursor: pointer;
   user-select: none;
@@ -136,11 +146,12 @@ main {
 }
 
 .btn:hover {
-  background-color: #3fa9f5;
+  background-color: #3fc659;
   color: #0f1117;
-  box-shadow: 0 0 15px #3fa9f5aa;
+  box-shadow: 0 0 15px #3fc659aa;
   transform: scale(1.05);
 }
+
 
 .btn:active {
   transform: scale(0.98);
@@ -151,12 +162,13 @@ main {
   background-color: #1f222a;
   border: 1px solid rgba(63,169,245,0.4);
   border-radius: 14px;
-  box-shadow: 0 0 18px 3px rgba(63,169,245,0.25);
+  box-shadow: 0 0 18px 3px rgba(255, 215, 0, 0.4);
   padding: 1.5rem 2rem;
   margin: auto 0 auto auto;
   max-width: 280px;
   color: #ccc;
   user-select: none;
+  text-align: center;
 }
 
 .features h3 {
@@ -164,33 +176,52 @@ main {
   font-size: 1.5rem;
   font-weight: 700;
   color: #3fa9f5;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  text-align: center;
 }
 
 .features ul {
   list-style: none;
-  padding-left: 1rem;
+  padding-left: 0;
   margin-top: 0;
+  text-align: left;
 }
 
 .features ul li {
-  position: relative;
-  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
   font-size: 1rem;
   line-height: 1.5;
-  padding-left: 1.5rem;
+  padding-left: 0;
   cursor: default;
   transition: opacity 0.3s ease, filter 0.3s ease;
+  gap: 0.6rem;
+  list-style: none;
 }
 
 .features ul li::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #3fa9f5;
+  content: "★";
+  font-size: 1.3rem;
   font-weight: bold;
+  flex-shrink: 0;
+}
+
+.features ul li:nth-child(1)::before {
+  color: #e03c3c;
+}
+
+.features ul li:nth-child(2)::before {
+  color: #3f8efc; 
+}
+
+.features ul li:nth-child(3)::before {
+  color: #3fc659; 
+}
+
+.features ul li:nth-child(4)::before {
+  color: #f2c94c; 
 }
 
 .features ul li:hover {
@@ -199,11 +230,13 @@ main {
 }
 
 footer {
-  background-color: #12151d;
+  background: linear-gradient(135deg, #12151d 0%, #1b1e27 100%);
   color: #555a70;
   font-size: 0.9rem;
   text-align: center;
   padding: 1rem 0;
   user-select: none;
   box-shadow: inset 0 1px 5px rgba(0,0,0,0.2);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
